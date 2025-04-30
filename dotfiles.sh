@@ -6,7 +6,7 @@ if ! is_installed "stow"; then
 	dnf install "stow" -y
 fi
 
-REPO_URL="git@github.com:Ionut-Leonas-Ungureanu/.dotfiles.git"
+REPO_URL="https://github.com/Ionut-Leonas-Ungureanu/.dotfiles.git"
 REPO_PATH="$HOME/.dotfiles"
 
 if [ -d "$REPO_PATH" ]; then
@@ -15,8 +15,8 @@ else
 	git clone "$REPO_URL" "$REPO_PATH"
 fi
 
-if [ $? -eq 0 ]; then
-	cd "$REPO_PATH"
+if mycmd; then
+	cd "$REPO_PATH" || exit
 	stow bash
 	stow ghostty
 	stow starship
