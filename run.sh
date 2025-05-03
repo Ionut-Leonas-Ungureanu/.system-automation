@@ -4,16 +4,19 @@ clear
 
 # Exit on error
 set -e
-f
+
 # Update system
 dnf update -y
 
 # setup ghostty with starship and configuration - use stow?
 source terminal.sh
 
-# setup dev tools: dotnet, nvm, node, angular
+source ./packages.conf
+# install system package's
+install_packages SYSTEM_PACKAGES
 
-# setup editors: nvim vscode rider
+# setup dev tools: dotnet, nvm, node, angular
+install_packages DEV_TOOLS
 
 # setup docker
 
