@@ -1,7 +1,7 @@
 #!/bin/bash
 
 is_installed() {
-	dnf list installed "$1" &> /dev/null
+	dnf list --installed "$1" &> /dev/null
 }
 
 install_packages() {
@@ -15,6 +15,6 @@ install_packages() {
 	done
 
 	if [ "${#to_install[@]}" -ne 0 ]; then
-		dnf install "${to_install[@]}" -y
+		sudo dnf install "${to_install[@]}" -y
 	fi
 }

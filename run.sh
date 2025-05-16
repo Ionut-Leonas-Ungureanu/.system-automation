@@ -6,17 +6,26 @@ clear
 set -e
 
 # Update system
-dnf update -y
+sudo dnf update -y
 
 # setup ghostty with starship and configuration - use stow?
+echo "Setup the terminal..."
 source terminal.sh
 
-source ./packages.conf
+source packages.conf
 # install system package's
-install_packages SYSTEM_PACKAGES
+echo "Install system packages..."
+install_packages "${SYSTEM_PACKAGES[@]}"
 
-# setup dev tools: dotnet, nvm, node, angular
-install_packages DEV_TOOLS
+echo "Install dev tools..."
+install_packages "${DEV_TOOLS[@]}"
+
+# install dotnet
+echo "Install dotnet..."
+curl -L https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
+sudo chmod +x dotnet-install.sh
+./dotnet-install.sh
+rm dotnet-install.sh
 
 # setup docker
 
@@ -24,13 +33,13 @@ install_packages DEV_TOOLS
 source dotfiles.sh
 
 # one drive
-source ./one-drive.sh
-setup_one_drive
+#source ./one-drive.sh
+#setup_one_drive
 
 # flatpacks
-source ./flatpacks.sh
+source flatpacks.sh
 
 # gnome extensions
-source ./gnome/gnome-extensions.sh
+source gnome/gnome-extensions.sh
 
 echo "Finished :)"
