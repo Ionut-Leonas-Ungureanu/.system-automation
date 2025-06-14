@@ -18,3 +18,21 @@ install_packages() {
 		sudo dnf install "${to_install[@]}" -y
 	fi
 }
+
+print() {
+	while [[ "$#" -gt 0 ]]; do
+		case $2 in
+			warn|warning)
+				echo -e "\e[33m$1\e[0m"
+				shift
+				;;
+			err|error)
+				echo -e "\e[31m$1\e[0m"
+				;;
+			*)
+				echo -e $1
+				;;
+		esac
+		shift
+	done
+}

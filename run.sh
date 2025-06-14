@@ -5,7 +5,11 @@ clear
 # Exit on error
 set -e
 
-# Update system
+# interpret options
+source menu.sh
+menu "$0"
+
+# update system
 sudo dnf update -y
 
 # setup ghostty with starship and configuration - use stow?
