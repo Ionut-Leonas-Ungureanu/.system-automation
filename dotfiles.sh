@@ -5,7 +5,7 @@ source ./utils.sh
 ORIGINAL_DIR=$(pwd)
 
 if ! is_installed stow; then
-	sudo dnf install stow -y
+	install_package stow
 fi
 
 REPO_URL="https://github.com/Ionut-Leonas-Ungureanu/.dotfiles.git"
@@ -19,12 +19,16 @@ fi
 
 if [ $? -eq 0 ]; then
 	cd "$REPO_PATH" || exit
-	stow bash --adopt
-	stow ghostty --adopt
-	stow starship --adopt
-	stow nvim --adopt
-	stow tmux --adopt
-	git -C "$REPO_PATH" restore .
+	# Bash
+	rm ~/.bashrc
+	stow bash
+
+	# Tools
+	stow starship
+	stow nvim
+	stow tmux
+	
+	# git -C "$REPO_PATH" restore .
 else
 	echo "Failed to clone repository from: $REPO_URL"
 fi

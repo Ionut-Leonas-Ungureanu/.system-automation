@@ -1,7 +1,11 @@
 #!/bin/bash
 
+update_system() {
+	sudo pacman -Syu --noconfirm
+}
+
 is_installed() {
-	dnf list --installed "$1" &> /dev/null
+	pacman -Qi "$1" &> /dev/null
 }
 
 install_packages() {
@@ -15,7 +19,13 @@ install_packages() {
 	done
 
 	if [ "${#to_install[@]}" -ne 0 ]; then
-		sudo dnf install "${to_install[@]}" -y
+		sudo pacman -S --noconfirm "${to_install[@]}"
+	fi
+}
+
+install_package() {	
+	if ! is_installed "$1"; then
+		sudo pacman -S --noconfirm "$1"
 	fi
 }
 
