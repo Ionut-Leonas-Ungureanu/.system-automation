@@ -5,11 +5,8 @@ source utils.sh
 install_package flatpak
 
 FLATPACKS=(
-	"com.mattjakeman.ExtensionManager"
+	"com.brave.Browser"
 	"md.obsidian.Obsidian"
-	"org.gnome.Screenshot"
-	"com.mattjakeman.ExtensionManager"
-	"Rider"
 )
 
 echo "Installing flatpacks"
