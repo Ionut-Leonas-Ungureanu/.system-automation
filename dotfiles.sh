@@ -34,6 +34,8 @@ if [ $? -eq 0 ]; then
 	stow waybar
 	stow swaync
 	stow wlogout
+	stow rofi
+	stow kitty
 	
 	# git -C "$REPO_PATH" restore .
 else
