@@ -20,13 +20,19 @@ fi
 if [ $? -eq 0 ]; then
 	cd "$REPO_PATH" || exit
 	# Bash
-	rm ~/.bashrc
+	mv ~/.bashrc ~/.bashrc.bak
 	stow bash
 
 	# Tools
 	stow starship
 	stow nvim
 	stow tmux
+
+	# Hyprland
+	stow hypr
+	stow waybar
+	stow swaync
+	stow wlogout
 	
 	# git -C "$REPO_PATH" restore .
 else

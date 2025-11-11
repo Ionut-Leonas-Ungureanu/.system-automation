@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source utils.sh
+
+install_package flatpak
+
 FLATPACKS=(
 	"com.mattjakeman.ExtensionManager"
 	"md.obsidian.Obsidian"
