@@ -127,7 +127,15 @@ if [ $SETUP_HYPRLAND -eq 0 ]; then
 	
 	# wlogout with AUR
 	yay -S wlogout --noconfirm
-	yay -S nerd-fonts-jetbrains-mono --noconfirm
+
+	# install JetBrainsMono Nerd Fonts
+	install_dir=$(pwd)
+	mkdir -p ~/.local/share/fonts
+	cd ~/.local/share/fonts
+	curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+	unzip JetBrainsMono.zip
+	rm JetBrainsMono.zip
+	cd "$install_dir"
 fi
 
 if [ $SETUP_DOTNET -eq 0 ]; then
