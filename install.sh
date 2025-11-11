@@ -127,6 +127,7 @@ if [ $SETUP_HYPRLAND -eq 0 ]; then
 	
 	# wlogout with AUR
 	yay -S wlogout --noconfirm
+	yay -S nerd-fonts-jetbrains-mono --noconfirm
 fi
 
 if [ $SETUP_DOTNET -eq 0 ]; then
