@@ -30,7 +30,7 @@ SETUP_DOTFILES=1
 SETUP_TMUX=1
 SETUP_FLATPACKS=1
 SETUP_HYPRLAND=1
-SETUP_TERMINALS=1
+SETUP_TERMINAL=1
 
 while [[ "$#" -gt 0 ]]; do
 	case $1 in
@@ -43,7 +43,7 @@ while [[ "$#" -gt 0 ]]; do
 			SETUP_TMUX=0
 			SETUP_FLATPACKS=0
 			SETUP_HYPRLAND=0
-			SETUP_TERMINALS=0
+			SETUP_TERMINAL=0
 			;;
 		-u|--update)
 			UPDATE=0
