@@ -126,7 +126,7 @@ if [ $SETUP_HYPRLAND -eq 0 ]; then
 	install_packages "${HYPRLAND_PACKAGES[@]}"
 	
 	# wlogout with AUR
-	yay -S wlogout
+	yay -S wlogout --noconfirm
 fi
 
 if [ $SETUP_DOTNET -eq 0 ]; then

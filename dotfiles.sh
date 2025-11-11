@@ -29,6 +29,7 @@ if [ $? -eq 0 ]; then
 	stow tmux
 
 	# Hyprland
+	rm -rf ~/.config/hypr
 	stow hypr
 	stow waybar
 	stow swaync
